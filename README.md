@@ -2,10 +2,8 @@
 
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
-
-An angular4 + [truffle](https://github.com/trufflesuite/truffle) starter app. Write, compile & deploy smart contracts for Ethereum.
-
+This project aims to vote using a smart contract on the blockchain.
+In vote_blockchain_registration/Docs folder there is a demo video of the project as well as a detailed pdf report(the projects work together).
 
 
 ### Part 1
