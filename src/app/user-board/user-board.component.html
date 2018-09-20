@@ -1,0 +1,58 @@
+<section class="hero is-medium is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">
+        InsatVote
+      </h1>
+    </div>
+  </div>
+</section>
+<br>
+<div class="container">
+  <h1 class="title">Vote</h1>
+  <h1 class="title is-4 is-info help">{{status}}</h1>
+
+  <form #coinForm="ngForm">
+    <div class="field">
+      <label class="label">To Address</label>
+      <p class="control">
+        <input
+          [(ngModel)]="recipientAddress"
+          name="recipientAddress"
+          class="input"
+          type="text"
+          placeholder="0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
+          name="recipientAddress"
+          required
+          #recipientAddressModel="ngModel"
+        >
+      </p>
+      <div *ngIf="recipientAddressModel.errors && (recipientAddressModel.dirty || recipientAddressModel.touched)"
+           class="help is-danger">
+        <p [hidden]="!recipientAddressModel.errors.required">
+          This field is required
+        </p>
+      </div>
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button
+          [disabled]="!coinForm.valid"
+          (click)="vote()()"
+          class="button is-primary">
+          vote
+        </button>
+      </p>
+    </div>
+  </form>
+
+  <button
+    (click)="winnerName()"
+    class="button is-primary">
+    winner Name
+  </button>
+
+
+
+</div>

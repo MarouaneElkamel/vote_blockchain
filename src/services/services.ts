@@ -1,8 +1,8 @@
-import {MetaCoinService} from './meta-coin.service'
 import {Web3Service} from './web3.service'
+import {BallotService} from './ballot-service';
 
 
 export {
-    MetaCoinService,
+    BallotService,
     Web3Service,
 };

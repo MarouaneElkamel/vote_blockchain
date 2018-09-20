@@ -1,0 +1,153 @@
+<section class="hero is-medium is-info is-bold">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title is-1">
+       InsatVote Admin Board
+      </h1>
+    </div>
+  </div>
+</section>
+<br>
+<div class="container">
+  <h1 class="title">Admin Board</h1>
+  <h1 class="title is-4 is-info help">{{status}}</h1>
+
+  <form #proposalsForm="ngForm">
+    <div class="field">
+      <label class="label">List of proposals</label>
+      <p class="control">
+        <input
+          [(ngModel)]="listOfProposals"
+          class="input"
+          type="text"
+          placeholder="marouane,yasmine..."
+          name="sendingProposal"
+          required
+          #sendingProposalModal="ngModel">
+      </p>
+      <div *ngIf="sendingProposalModal.errors && (sendingProposalModal.dirty || sendingProposalModal.touched)"
+           class="help is-danger">
+        <p [hidden]="!sendingProposalModal.errors.required">
+          This field is required
+        </p>
+      </div>
+
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button
+          [disabled]="!proposalsForm.valid"
+          (click)="setProposals()"
+          class="button is-primary">
+          Set Proposals
+        </button>
+      </p>
+    </div>
+  </form>
+
+
+
+  <form #votersForm="ngForm">
+    <div class="field">
+      <label class="label">List of Voters</label>
+      <p class="control">
+        <input
+          [(ngModel)]="listOfvoters"
+          class="input"
+          type="text"
+          placeholder="['Ox01','OxO2']"
+          name="sendingProposal"
+          required
+          #listOfvotersModal="ngModel">
+      </p>
+      <div *ngIf="listOfvotersModal.errors && (listOfvotersModal.dirty || listOfvotersModal.touched)"
+           class="help is-danger">
+        <p [hidden]="!listOfvotersModal.errors.required">
+          This field is required
+        </p>
+      </div>
+
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button
+          [disabled]="!votersForm.valid"
+          (click)="setRightToVote()"
+          class="button is-primary">
+          set Have Right To Vote
+        </button>
+      </p>
+    </div>
+  </form>
+
+
+  <form #revokedForm="ngForm">
+    <div class="field">
+      <label class="label">List of Revoked</label>
+      <p class="control">
+        <input
+          [(ngModel)]="listOfrevoked"
+          class="input"
+          type="text"
+          placeholder="['Ox01','OxO2']"
+          name="sendingProposal"
+          required
+          #listOfrevokedModal="ngModel">
+      </p>
+      <div *ngIf="listOfrevokedModal.errors && (listOfrevokedModal.dirty || listOfrevokedModal.touched)"
+           class="help is-danger">
+        <p [hidden]="!listOfrevokedModal.errors.required">
+          This field is required
+        </p>
+      </div>
+
+    </div>
+
+    <div class="field is-grouped">
+      <p class="control">
+        <button
+          [disabled]="!revokedForm.valid"
+          (click)="RevokeRightToVote()"
+          class="button is-primary">
+          set Revoked to vote
+        </button>
+      </p>
+    </div>
+  </form>
+
+
+
+
+
+  <div>
+    <button
+      (click)="startVote()"
+      class="button is-primary">
+      startVote
+    </button>
+
+    <button
+      (click)="endVote()"
+      class="button is-primary">
+      endVote
+    </button>
+  </div>
+
+  <div>
+    <button
+      (click)="winnerName()"
+      class="button is-primary">
+      winnerName
+    </button>
+
+    <button
+      (click)="getProposals()"
+      class="button is-primary">
+      get proposals number
+    </button>
+  </div>
+
+
+</div>

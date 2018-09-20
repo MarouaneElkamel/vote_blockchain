@@ -1,24 +1,20 @@
-import {Component, HostListener, NgZone} from '@angular/core';
-
-import {Web3Service} from '../services/services'
-
-import {canBeNumber} from '../util/validation';
-import {BallotService} from '../services/ballot-service';
-
-declare var window: any;
+import {Component, NgZone, OnInit} from '@angular/core';
+import {BallotService} from '../../services/ballot-service';
+import {canBeNumber} from '../../util/validation';
+import {Web3Service} from '../../services/services';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html'
+  selector: 'app-user-board',
+  templateUrl: './user-board.component.html',
+  styleUrls: ['./user-board.component.css']
 })
-export class AppComponent {
+export class UserBoardComponent {
 
   // TODO add proper types these variables
   account: any;
   accounts: any;
 
 
-  sendingAmount: number;
   recipientAddress: string;
   status: string;
   canBeNumber = canBeNumber;
@@ -57,18 +53,16 @@ export class AppComponent {
 
   vote = () => {
     this.setStatus('Initiating blockchain call... (please wait)');
-    this.ballotService.vote(this.account, '0x03').subscribe(() => {
+    this.ballotService.vote(this.account, this.recipientAddress).subscribe(() => {
       this.setStatus('voted');
     }, e => this.setStatus('Error proposal names; see log.'))
   }
 
 
   winnerName = () => {
-    this.setStatus('Initiating proposal names... (please wait)');
+    this.setStatus('Initiating blockchain call... (please wait)');
     this.ballotService.winnerName(this.account).subscribe(value => {
-      this.setStatus('winneer ' + value);
-    }, e => this.setStatus('Error proposal names; see log.'))
+      this.setStatus('The winner is ' + this.web3Service.web3.toAscii(value));
+    }, e => this.setStatus('Error in finding winner name'))
   }
-
-
 }

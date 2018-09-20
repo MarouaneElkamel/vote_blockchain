@@ -4,10 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 
-import {MetaCoinService, Web3Service} from '../services/services'
+import {Web3Service} from '../services/services'
+import {BallotService} from '../services/ballot-service';
+import { AdminBoardComponent } from './admin-board/admin-board.component';
+import {RouterModule} from '@angular/router';
+import { UserBoardComponent } from './user-board/user-board.component';
 
 const SERVICES = [
-  MetaCoinService,
+  BallotService,
   Web3Service,
 ]
 
@@ -15,10 +19,17 @@ const SERVICES = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {path: '', component: AppComponent},
+      {path: 'admin', component: AdminBoardComponent},
+      {path: 'user', component: UserBoardComponent}
+    ])
   ],
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminBoardComponent,
+    UserBoardComponent
   ],
   providers: [SERVICES],
   bootstrap: [AppComponent]
