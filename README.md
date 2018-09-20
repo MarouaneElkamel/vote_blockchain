@@ -10,7 +10,7 @@ An angular4 + [truffle](https://github.com/trufflesuite/truffle) starter app. Wr
 
 ### Part 1
 
-1. `git clone https://github.com/Nikhil22/angular-truffle-starter-dapp.git`
+1. `git clone https://github.com/MarouaneElkamel/vote_blockchain.git`
 2. `cd angular-truffle-starter-dapp`
 3. `npm install`
 
