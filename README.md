@@ -2,8 +2,8 @@
 
 
 
-This project aims to vote using a smart contract on the blockchain.
-In vote_blockchain_registration/Docs folder there is a demo video of the project as well as a detailed pdf report(the projects work together).
+- This project aims to vote using a smart contract on the blockchain.
+- In vote_blockchain_registration/Docs (the other repo) folder there is a demo video of the project as well as a detailed pdf report(the projects work together).
 
 
 ### Part 1
